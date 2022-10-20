@@ -1,0 +1,15 @@
+<h1>Characters#index</h1>
+<p>Find me in app/views/characters/index.html.erb</p>
+
+<div class="columns">
+  <div class="column">
+    <h2 class="title is-2">All Characters</h2>
+    <ol class="ml-5">
+      <% @characters.each do |character| %>
+        <li>
+          <%= link_to character.name, character %>
+          <em>(<%= character.show.name %>)</em>
+        </li>
+      <% end %>
+    </ol>
+  </div>

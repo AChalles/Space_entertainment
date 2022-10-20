@@ -1,0 +1,10 @@
+<div class="column">
+    <h2 class="title is-2">Locations</h2>
+    <ol class="ml-5">
+      <% @locations.each do |location| %>
+        <li>
+          <%= link_to location.name, location %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
