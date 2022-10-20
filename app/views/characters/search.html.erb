@@ -1,0 +1,12 @@
+<div class="columns">
+  <div class="column">
+    <h2 class="title is-2"><%= params[:keywords] %> </h2>
+    <ol class="ml-5">
+      <% @characters.each do |character| %>
+        <li>
+          <%= link_to character.name, character %>
+          <em>(<%= character.show.name %>)</em>
+        </li>
+      <% end %>
+    </ol>
+  </div>

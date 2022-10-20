@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get 'characters', to: "characters#index", as: "characters"
   get 'characters/:id', to: "characters#show", as: "character", constraints: {id: /\d+/}
   get 'about', to: "about#index", as: "home"
+  resources :characters, only: [:index, :show] do
+    collection do
+      get "search"
+    end
+  end
   # get 'home', to: "home#index", as: "home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
