@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  air_date: 2022-10-19
+  episode_number: MyString
+  show: one
+
+two:
+  name: MyString
+  air_date: 2022-10-19
+  episode_number: MyString
+  show: two
