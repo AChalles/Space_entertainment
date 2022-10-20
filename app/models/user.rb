@@ -4,5 +4,5 @@ class User < ApplicationRecord
   belongs_to :episode
   belongs_to :show
 
-  validates :username, presence: true
+  validates :username, :full_name, presence: true
 end

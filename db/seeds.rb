@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'faker'
+
+Faker::Name.unique.clear #clear used values
+Faker::UniqueGenerator.clear
+
 Character.delete_all
 Location.delete_all
 Episode.delete_all
@@ -23,7 +28,7 @@ increment = 1
         resp = RestClient.get homeworld
         home = JSON.parse resp
         birthPlace = ""
-        if home.nil?
+        if !home.nil?
           birthPlace = home["name"]
         end
         character = show.characters.create(
@@ -52,7 +57,7 @@ increment = 1
       end
     end
   end
-increment = increment + 1
+  increment = increment + 1
 end
 
 sWFilmsApi = 'https://swapi.dev/api/films'
@@ -70,10 +75,11 @@ if !episodes.nil?
     end
   end
 end
+
 increment = 1
 7.times do
-  sWLocationapi = "https://rickandmortyapi.com/api/location?page=#{increment}"
-  response = RestClient.get sWLocationapi
+  RMLocationapi = "https://rickandmortyapi.com/api/location?page=#{increment}"
+  response = RestClient.get RMLocationapi
   location = JSON.parse response
   if !location.nil?
     location["results"].each do |l|
@@ -86,3 +92,63 @@ increment = 1
       end
     end
   end
+  increment = increment + 1
+end
+
+increment = 1
+3.times do
+  rMFilmsApi = "https://rickandmortyapi.com/api/episode?page=#{increment}"
+  response = RestClient.get rMFilmsApi
+  episodes = JSON.parse response
+  if !episodes.nil?
+    episodes["results"].each do |e|
+      show = Show.find_or_create_by(name: "Rick & Morty")
+      if show && show.valid?
+        episode = show.episodes.create(
+          name:   e["name"],
+          air_date:   e["air_date"],
+          episode_number: e["episode"]
+        )
+      end
+    end
+  end
+  increment = increment + 1
+end
+
+increment = 1
+5.times do
+  rMCharacterapi = "https://rickandmortyapi.com/api/character?page=#{increment}"
+  response = RestClient.get rMCharacterapi
+  characters = JSON.parse response
+  if !characters.nil?
+    characters["results"].each do |c|
+      show = Show.find_or_create_by(name: "Rick & Morty")
+      if show && show.valid?
+
+        character = show.characters.create(
+          name:         c["name"],
+          gender:       c["gender"],
+          birth_place:  c["origin"]["name"]
+        )
+      end
+    end
+  end
+  increment = increment + 1
+end
+
+100.times do
+  character = Character.find(rand(182) + 1)
+  location = Location.find(rand(184) + 1)
+  episode = Episode.find(rand(57) + 1)
+  show = Show.find(rand(2) + 1)
+  user = User.find_or_create_by(
+    full_name:  Faker::Name.unique.name,
+    username:   Faker::Internet.unique.username,
+    character:  character,
+    location:   location,
+    episode:    episode,
+    show:       show,
+    )
+
+
+end

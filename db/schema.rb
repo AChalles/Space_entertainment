@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_200437) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
+    t.string "full_name"
     t.integer "character_id", null: false
     t.integer "location_id", null: false
     t.integer "episode_id", null: false

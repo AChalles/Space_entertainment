@@ -2,5 +2,5 @@ class Location < ApplicationRecord
   belongs_to :show
   has_many :user
 
-  validates :name, presence: true
+  validates :name, :dimension, presence: true
 end
