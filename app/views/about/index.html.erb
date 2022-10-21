@@ -1,35 +1,6 @@
 <h1>About this website</h1>
-<p>This website uses the Rick and morty api, rickandmortyapi.com, swapi.dev (Star Wars API) and Faker as they each have JSON structure.
- I was able to grab the Characters, locations and episodes from each of these data sets into a table called Characters, locations, and episodes and use the Faker api
-  to create a list of users with a favourite character, favourite location, and favourite episode/movie from all three datasets.</p>
+<p>This website uses the Rick and morty api, rickandmortyapi.com, swapi.dev (Star Wars API) and Faker as they each have JSON structure.</p>
+ <p>I was able to grab the Characters, locations and episodes from each of these data sets into a table called Characters, locations, and episodes and use the Faker api</p>
+ <p>to create a list of users with a favourite character, favourite location, and favourite episode/movie from all three datasets.</p>
 
-<div>
-</div>
 
-<div class="columns">
-  <div class="column">
-    <h2 class="title is-2">Characters</h2>
-    <ol class="ml-5">
-      <% @characters.each do |character| %>
-        <li>
-          <%= link_to character.name, character %>
-          <em>(<%= character.show.name %>)</em>
-        </li>
-      <% end %>
-    </ol>
-  </div>
-
-  <div class="column">
-    <h2 class="title is-2">Locations</h2>
-    <ol class="ml-5">
-      <% @locations.each do |location| %>
-        <li>
-          <%= link_to location.name, location %>
-          <em>(<%= location.show.name %>)</em>
-        </li>
-      <% end %>
-    </ol>
-    <p>
-    </p>
-  </div>
-</div>
