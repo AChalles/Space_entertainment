@@ -2,7 +2,7 @@
 
 <article>
   <div class="message is-dark">
-    <p>Gender</p>
+    <p>Gender:</p>
   </div>
   <div class="message-body">
     <%= @character.gender %>
@@ -12,5 +12,11 @@
   </div>
   <div class="message-body">
     <%= @character.birth_place %>
+  </div>
+  <div class="message is-dark">
+    <p>Show:</p>
+  </div>
+  <div class="message-body">
+    <%= @character.show.name %>
   </div>
 </article>
