@@ -1,11 +1,11 @@
 class AboutController < ApplicationController
   def index
-    @characters = Character.all
+    @characters = Character.order(name: :asc).page(params[:page])
 
-    @locations = Location.all
+    @locations = Location.order(name: :asc).page(params[:page])
 
-    @users = User.all
+    @users = User.order(name: :asc).page(params[:page])
 
-    @episodes = Episode.all
+    @episodes = Episode.order(episode_number: :asc).page(params[:page])
   end
 end
