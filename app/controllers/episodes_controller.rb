@@ -1,6 +1,6 @@
 class EpisodesController < ApplicationController
   def index
-    @episodes = Episode.all
+    @episodes = Episode.order(episode_number: :asc).page(params[:page])
   end
 
   def show

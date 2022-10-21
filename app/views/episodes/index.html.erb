@@ -1,6 +1,10 @@
+
+
 <div class="columns">
   <div class="column">
     <h2 class="title is-2">All Episodes</h2>
+    <%= paginate @episodes %>
+    <%= page_entries_info @episodes %>
     <ol class="ml-5">
       <% @episodes.each do |episode| %>
         <li>

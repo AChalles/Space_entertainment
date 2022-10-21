@@ -1,9 +1,12 @@
 <div class="column">
     <h2 class="title is-2">Locations</h2>
+    <%= paginate @locations %>
+    <%= page_entries_info @locations %>
     <ol class="ml-5">
       <% @locations.each do |location| %>
         <li>
           <%= link_to location.name, location %>
+          <em>(<%= location.show.name %>)</em>
         </li>
       <% end %>
     </ol>

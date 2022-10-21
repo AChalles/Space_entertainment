@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   def index
-    @characters = Character.order(created_at: :desc).page(params[:page])
+    @characters = Character.order(name: :asc).page(params[:page])
   end
 
   def search
