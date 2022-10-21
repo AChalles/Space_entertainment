@@ -13,3 +13,19 @@
     <%= @show.created_at %>
   </div>
 </article>
+
+<div class="columns">
+  <div class="column">
+    <h2 class="title is-2"><%= @show.name %> Characters</h2>
+    <%= paginate @characters %>
+    <%= page_entries_info @characters %>
+    <ol class="ml-5">
+      <% @characters.each do |character| %>
+        <% if character.show.name == @show.name%>
+          <li>
+            <%= link_to character.name, character %>
+          </li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
