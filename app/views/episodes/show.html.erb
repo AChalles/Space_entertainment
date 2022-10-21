@@ -1,2 +1,16 @@
-<h1>Episodes#show</h1>
-<p>Find me in app/views/episodes/show.html.erb</p>
+<h2><%= @episode.name %></h2>
+
+<article>
+  <div class="message is-dark">
+    <p>Air Date:</p>
+  </div>
+  <div class="message-body">
+    <%= @episode.air_date %>
+  </div>
+  <div class="message is-dark">
+    <p>Episode number:</p>
+  </div>
+  <div class="message-body">
+    <%= @episode.episode_number %>
+  </div>
+</article>

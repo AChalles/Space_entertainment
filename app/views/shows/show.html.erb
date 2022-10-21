@@ -1,2 +1,15 @@
-<h1>Shows#show</h1>
-<p>Find me in app/views/shows/show.html.erb</p>
+
+<article>
+  <div class="message is-dark">
+    <p>Name:</p>
+  </div>
+  <div class="message-body">
+    <%= @show.name %>
+  </div>
+  <div class="message is-dark">
+    <p>Created at:</p>
+  </div>
+  <div class="message-body">
+    <%= @show.created_at %>
+  </div>
+</article>

@@ -1,2 +1,12 @@
-<h1>Episodes#index</h1>
-<p>Find me in app/views/episodes/index.html.erb</p>
+<div class="columns">
+  <div class="column">
+    <h2 class="title is-2">All Episodes</h2>
+    <ol class="ml-5">
+      <% @episodes.each do |episode| %>
+        <li>
+          <%= link_to episode.name, episode %>
+          <em>(<%= episode.show.name %>)</em>
+        </li>
+      <% end %>
+    </ol>
+  </div>
